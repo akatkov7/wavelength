@@ -2,5 +2,27 @@
 # and leave all files detected as binary untouched.
 * text=auto
 
-# Force the following filetypes to have unix eols, so Windows does not break them
-*.* text eol=lf
+# Never modify line endings of our bash scripts
+*.sh -crlf
+
+#
+# The above will handle all files NOT found below
+#
+# These files are text and should be normalized (Convert crlf => lf)
+*.css           text
+*.html          text
+*.java          text
+*.js            text
+*.ts            text
+*.json          text
+*.properties    text
+*.txt           text
+*.xml           text
+
+# These files are binary and should be left untouched
+# (binary is macro for -text -diff)
+*.class         binary
+*.jar           binary
+*.gif           binary
+*.jpg           binary
+*.png           binary
