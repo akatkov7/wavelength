@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import gaugeRangeImage from './resources/gauge-range-no-numbers.png';
 import pointerImage from './resources/pointer.png';
-import targetImage from './resources/target.png';
+import targetImage from './resources/target-smaller.png';
 
 /**
  * Get the different styles so they're properly positioned when overlapped.
@@ -12,7 +12,7 @@ import targetImage from './resources/target.png';
 const getPositionStyle = () => {
   const imageSize = {
     gaugeRange: { height: 356, width: 671, tickHeight: 339 },
-    target: { height: 289, width: 289 },
+    target: { height: 197, width: 289 },
     pointer: { height: 29, width: 259, radius: 14.5 },
   };
 
