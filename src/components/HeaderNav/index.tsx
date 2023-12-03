@@ -1,18 +1,18 @@
-import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import InfoIcon from '@material-ui/icons/Info';
-import MenuIcon from '@material-ui/icons/Menu';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-import SpeedIcon from '@material-ui/icons/Speed';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import GitHubIcon from '@mui/icons-material/GitHub';
+// import InfoIcon from '@mui/icons-material/Info';
+import MenuIcon from '@mui/icons-material/Menu';
+// import MenuBookIcon from '@mui/icons-material/MenuBook';
+import SpeedIcon from '@mui/icons-material/Speed';
+import { SwipeableDrawer } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import React from 'react';
 
 const HeaderNav = () => {
@@ -28,28 +28,28 @@ const HeaderNav = () => {
       icon: <SpeedIcon />,
       text: 'Wavelength',
       onClick: () => {
-        window.location.href = '/wavelength';
+        window.location.href = '/';
       },
     },
-    {
-      icon: <InfoIcon />,
-      text: 'About',
-      onClick: () => {
-        window.location.href = '/wavelength/docs';
-      },
-    },
-    {
-      icon: <MenuBookIcon />,
-      text: 'Tech Spec',
-      onClick: () => {
-        window.location.href = '/wavelength/docs';
-      },
-    },
+    // {
+    //   icon: <InfoIcon />,
+    //   text: 'About',
+    //   onClick: () => {
+    //     window.location.href = '/wavelength/docs';
+    //   },
+    // },
+    // {
+    //   icon: <MenuBookIcon />,
+    //   text: 'Tech Spec',
+    //   onClick: () => {
+    //     window.location.href = '/wavelength/docs';
+    //   },
+    // },
     {
       icon: <GitHubIcon />,
       text: 'GitHub',
       onClick: () => {
-        window.location.href = 'https://github.com/davidhorm/wavelength';
+        window.location.href = 'https://github.com/akatkov7/wavelength';
       },
     },
   ];

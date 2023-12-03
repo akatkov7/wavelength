@@ -1,7 +1,7 @@
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Slider from '@mui/material/Slider';
+import Typography from '@mui/material/Typography';
 import React from 'react';
 import Gauge from '../Gauge';
 import { initialState, reducer } from './reducer';
@@ -53,7 +53,7 @@ const Wavelength = () => {
         </Typography>
         <Slider
           style={{ gridArea: GRID_AREA.SLIDER, alignSelf: 'end' }}
-          valueLabelDisplay="on"
+          valueLabelDisplay="off"
           value={state.pointerPercent}
           onChange={(event, value) => dispatch({ type: 'SET_POINTER', pointerPercent: value as number })}
         />

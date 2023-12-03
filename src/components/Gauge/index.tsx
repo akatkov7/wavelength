@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import gaugeRangeImage from './resources/gauge-range.png';
+import gaugeRangeImage from './resources/gauge-range-no-numbers.png';
 import pointerImage from './resources/pointer.png';
 import targetImage from './resources/target.png';
 

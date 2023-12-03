@@ -7,6 +7,7 @@ export const initialState = {
   pointerPercent: 50,
   zeroWord: 'RESET',
   hundredWord: 'RESET',
+  antonymIndex: 0,
 };
 
 type actions =
@@ -39,14 +40,14 @@ export const reducer = (state: typeof initialState, action: actions): typeof ini
       copy(action.targetPercent.toString());
 
       // Get new antonyms
-      const antonymIndex = Math.round(Math.random() * antonyms.length) - 1;
-      const [zeroWord, hundredWord] = antonyms[antonymIndex];
+      const [zeroWord, hundredWord] = antonyms[state.antonymIndex];
 
       return {
         ...initialState,
         targetPercent: Math.min(100, Math.max(0, action.targetPercent)),
         zeroWord,
         hundredWord,
+        antonymIndex: state.antonymIndex + 1,
       };
     }
     default:
