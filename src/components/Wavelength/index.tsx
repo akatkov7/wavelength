@@ -16,6 +16,7 @@ const containerStyle = {
   alignItems: 'center',
 };
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 enum GRID_AREA {
   ZERO_WORD = 'zero-word',
   HUNDRED_WORD = 'hundred-word',
