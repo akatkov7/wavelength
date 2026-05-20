@@ -1,4 +1,3 @@
-import copy from 'copy-to-clipboard';
 import antonyms from './resources/antonyms';
 
 export const initialState = {
@@ -33,7 +32,6 @@ export const reducer = (state: typeof initialState, action: Actions): typeof ini
       return { ...state, targetVisible: true };
     }
     case 'PEAK_TARGET': {
-      action.isMouseEvent && copy(state.targetPercent.toString());
       return {
         ...state,
         targetVisible: true,
@@ -59,9 +57,6 @@ export const reducer = (state: typeof initialState, action: Actions): typeof ini
       };
     }
     case 'RESET_GAUGE': {
-      // Copy target value to clip board
-      copy(action.targetPercent.toString());
-
       // Get new antonyms
       const [zeroWord, hundredWord] = antonyms[state.antonymIndex];
 
