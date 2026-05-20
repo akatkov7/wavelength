@@ -23,17 +23,6 @@ enum GRID_AREA {
   SLIDER = 'slider',
 }
 
-const sliderStyle = {
-  width: '100%',
-  maxWidth: '671px',
-  display: 'grid',
-  columnGap: '1rem',
-  gridTemplate: `
-    '${GRID_AREA.ZERO_WORD} ${GRID_AREA.SLIDER} ${GRID_AREA.HUNDRED_WORD}' 5rem
-    / 7% auto 7%
-  `,
-};
-
 // #endregion Styles
 
 const Wavelength = () => {
@@ -48,19 +37,29 @@ const Wavelength = () => {
         pointerDegree={(state.pointerPercent * 180) / 100}
       />
 
-      <section style={sliderStyle}>
-        <Typography variant="subtitle2" style={{ gridArea: GRID_AREA.ZERO_WORD, justifySelf: 'left' }}>
-          {state.zeroWord}
-        </Typography>
+      <section
+        style={{
+          width: '100%',
+          maxWidth: '671px',
+          display: 'flex',
+          flexDirection: 'column',
+          marginBottom: '24px',
+        }}
+      >
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Typography variant="subtitle2" style={{ gridArea: GRID_AREA.ZERO_WORD, justifySelf: 'left' }}>
+            {state.zeroWord}
+          </Typography>
+          <Typography variant="subtitle2" style={{ gridArea: GRID_AREA.HUNDRED_WORD, justifySelf: 'right' }}>
+            {state.hundredWord}
+          </Typography>
+        </div>
         <Slider
           style={{ gridArea: GRID_AREA.SLIDER, alignSelf: 'end' }}
           valueLabelDisplay="off"
           value={state.pointerPercent}
           onChange={(event, value) => dispatch({ type: 'SET_POINTER', pointerPercent: value as number })}
         />
-        <Typography variant="subtitle2" style={{ gridArea: GRID_AREA.HUNDRED_WORD, justifySelf: 'right' }}>
-          {state.hundredWord}
-        </Typography>
       </section>
 
       <ButtonGroup>
@@ -73,7 +72,7 @@ const Wavelength = () => {
           onTouchStart={() => dispatch({ type: 'PEAK_TARGET', isMouseEvent: false })}
           onTouchEnd={() => dispatch({ type: 'HIDE_TARGET' })}
         >
-          PEAK
+          PEEK
         </Button>
         <Button onClick={() => dispatch({ type: 'SHOW_TARGET' })}>REVEAL</Button>
       </ButtonGroup>
