@@ -63,6 +63,36 @@ describe('Wavelength reducer', () => {
     });
   });
 
+  describe('CHANGE_SCORE action', () => {
+    it('should update the requested team score', () => {
+      const actualState = reducer(initialState, { type: 'CHANGE_SCORE', side: 'left', delta: 1 });
+
+      expect(actualState.leftScore).toBe(1);
+      expect(actualState.rightScore).toBe(0);
+    });
+
+    it(`shouldn't allow scores below 0`, () => {
+      const actualState = reducer(initialState, { type: 'CHANGE_SCORE', side: 'right', delta: -1 });
+
+      expect(actualState.rightScore).toBe(0);
+    });
+  });
+
+  describe('RESET_SCORE action', () => {
+    it('should reset the requested team score', () => {
+      const state = {
+        ...initialState,
+        leftScore: 3,
+        rightScore: 2,
+      };
+
+      const actualState = reducer(state, { type: 'RESET_SCORE', side: 'left' });
+
+      expect(actualState.leftScore).toBe(0);
+      expect(actualState.rightScore).toBe(2);
+    });
+  });
+
   describe('RESET_GAUGE action', () => {
     it('should set to default initial state with specified target percent', () => {
       const state = {
@@ -70,6 +100,8 @@ describe('Wavelength reducer', () => {
         targetPercent: 88,
         targetVisible: true,
         pointerPercent: 47,
+        leftScore: 3,
+        rightScore: 2,
       };
 
       const actualState = reducer(state, { type: 'RESET_GAUGE', targetPercent: 42 });
@@ -77,6 +109,8 @@ describe('Wavelength reducer', () => {
       expect(actualState.pointerPercent).toBe(50);
       expect(actualState.targetVisible).toBe(false);
       expect(actualState.targetPercent).toBe(42);
+      expect(actualState.leftScore).toBe(3);
+      expect(actualState.rightScore).toBe(2);
     });
 
     it(`shouldn't allow setting the targetPercent state below 0`, () => {
